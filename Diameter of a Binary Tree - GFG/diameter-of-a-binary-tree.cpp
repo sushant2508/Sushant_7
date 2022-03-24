@@ -103,8 +103,6 @@ class Solution {
     // Function to return the diameter of a Binary Tree.
     int diameter(Node* root) {
         if(root==NULL) return 0;
-    //dia(root);
-    if(!root) return 0;
     int ld = diameter(root->left);
     int rd = diameter(root->right);
     int ldep = dep(root->left);
