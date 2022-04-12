@@ -9,20 +9,22 @@
  * };
  */
 class Solution {
-public:  
-    ListNode* merge(ListNode *l1, ListNode*l2){
-        if(l1==NULL) return l2;
-        if(l2==NULL) return l1;
-        if(l1->val>l2->val){
-            l2->next = merge(l1, l2->next);
-            return l2;
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        
+        
+        if(list1 ==NULL && list2 ==NULL) return list1;
+        if(list1 == NULL) return list2;
+        if(list2 ==NULL) return list1;
+        
+        //ListNode* temp = mergeTwoLists(list1->next, list2->next);
+        if(list1->val > list2->val){
+            list2->next = mergeTwoLists(list1, list2->next);
+            return list2;
         }
         else{
-            l1->next = merge(l2, l1->next);
-            return l1;
-        }    
-    }
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {      
-        return merge(list1, list2);      
+            list1->next = mergeTwoLists(list2, list1->next);
+            return list1;
+        }
     }
 };
