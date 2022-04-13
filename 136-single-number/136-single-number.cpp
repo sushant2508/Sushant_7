@@ -7,7 +7,7 @@ public:
         for(int i=0; i<nums.size(); ++i){
             mp[nums[i]]++;
         }
-        for(auto& value: mp){
+        for(auto value: mp){
             
             if(value.second ==1) return value.first;
         }
