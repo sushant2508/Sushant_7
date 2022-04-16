@@ -1,7 +1,6 @@
 class Solution {
 public:
-    void setZeroes(vector<vector<int>>& matrix) {
-        
+    void setZeroes(vector<vector<int>>& matrix) { 
         int row = matrix.size();
         int col = matrix[0].size();
         vector<long long int> rows(row,INT_MAX);
@@ -18,14 +17,8 @@ public:
             for(int j=0; j<col; ++j){
                if(rows[i]==0 || cols[j]==0 ){
                    matrix[i][j]=0;
-               }
-                // if(cols[j]==0){
-                //     matrix[i][j]=0;
-                // }     
+               }  
             }
-        }
-        
-        
-        
+        }        
     }
 };
