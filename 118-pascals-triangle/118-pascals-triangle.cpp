@@ -8,9 +8,9 @@ public:
         if(num==1){
             return {{1}};
         }
-        if(num==2){
-            return {{1}, {1,1}};
-        }
+        // if(num==2){
+        //     return {{1}, {1,1}};
+        // }
         ans = (generate(num-1));
         v = ans[ans.size()-1];
         b.push_back(1);
