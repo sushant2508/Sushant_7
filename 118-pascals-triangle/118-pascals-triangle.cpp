@@ -1,21 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>> generate(int numRows) {
-        
-        
-     if(numRows==1) return {{1}}; 
-     vector<vector<int>> temp = generate(numRows-1);
-        int a = temp.size()-1;
-        vector<int> sus;
-        sus = temp[a];
-        vector<int> ans;
-        ans.push_back(1);
-        for(int i=0; i<sus.size()-1; ++i){
-            ans.push_back(sus[i]+sus[i+1]);
+    vector<vector<int>> generate(int num) {    
+    
+        vector<vector<int>> ans;
+        vector<int> v;
+        vector<int> b;
+        if(num==1){
+            return {{1}};
         }
-        ans.push_back(1);
-        temp.push_back(ans);
-        return temp;
+        if(num==2){
+            return {{1}, {1,1}};
+        }
+        ans = (generate(num-1));
+        v = ans[ans.size()-1];
+        b.push_back(1);
+        for( int i=1; i<v.size(); ++i){
+            b.push_back(v[i-1] + v[i]);
+        }
+        b.push_back(1);
+        ans.push_back(b);
+        return ans;
         
     }
 };
