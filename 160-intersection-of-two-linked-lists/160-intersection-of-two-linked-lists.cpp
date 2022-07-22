@@ -10,8 +10,8 @@ class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         
+        if(headA==NULL || headB==NULL) return NULL;
         while(headA!=NULL){
-            
             ListNode *temp;
             temp=headB;
             while(temp!=NULL){
