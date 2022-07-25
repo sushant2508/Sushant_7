@@ -24,6 +24,7 @@ public:
         for(int i=0; i<count -(k%count); ++i){
             tail=tail->next;
             //head=head->next;
+            //count -(k%count)
         }
         head = tail->next;
         tail->next=NULL;
