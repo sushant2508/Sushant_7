@@ -2,7 +2,7 @@ class Solution {
 public:
     
     vector<vector<int>> ans;
-    void helper(vector<int>& nums, int i, vector<int>& substrings){
+    void helper(vector<int>& nums, int i, vector<int> substrings){
         
         if(nums.size()==i){
             ans.push_back(substrings);
