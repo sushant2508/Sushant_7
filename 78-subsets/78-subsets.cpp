@@ -2,25 +2,24 @@ class Solution {
 public:
     
     vector<vector<int>> ans;
-    void gen(vector<int>& subset, int i, vector<int>& nums){
+    void helper(vector<int>& nums, int i, vector<int>& substrings){
         
-        if(i==nums.size()){
-            ans.push_back(subset);
+        if(nums.size()==i){
+            ans.push_back(substrings);
             return;
         }
-        gen(subset, i+1, nums);
+        helper(nums, i+1, substrings);
         
-        subset.push_back(nums[i]);
-        gen(subset, i+1, nums);
-        subset.pop_back();
+        substrings.push_back(nums[i]);
+        helper(nums, i+1, substrings);
+        substrings.pop_back();
+        
+        
     }
-    
-    
     vector<vector<int>> subsets(vector<int>& nums) {
         
-        vector<int> subset;
-        gen(subset, 0, nums);
+        vector<int> substrings;
+        helper(nums, 0, substrings);
         return ans;
-        
     }
 };
