@@ -2,24 +2,22 @@ class Solution {
 public:
     
     vector<vector<int>> ans;
-    void helper(vector<int>& nums, int i, vector<int> substrings){
-        
-        if(nums.size()==i){
-            ans.push_back(substrings);
+    
+    void helper(vector<int>& nums, vector<int> subset, int i){
+        if(i==nums.size()){
+            ans.push_back(subset);
             return;
         }
-        helper(nums, i+1, substrings);
+        helper(nums, subset, i+1);
         
-        substrings.push_back(nums[i]);
-        helper(nums, i+1, substrings);
-        substrings.pop_back();
-        
-        
+        subset.push_back(nums[i]);
+        helper(nums, subset, i+1);
+        subset.pop_back();
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         
-        vector<int> substrings;
-        helper(nums, 0, substrings);
+        vector<int> subset;
+        helper(nums, subset, 0);
         return ans;
     }
 };
